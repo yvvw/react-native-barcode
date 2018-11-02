@@ -1,0 +1,36 @@
+{
+  "name": "@yyyyu/react-native-barcode",
+  "author": "yyyyu <g592842897@gmail.com>",
+  "version": "1.0.0",
+  "keywords": [
+    "react-native",
+    "qrcode",
+    "barcode"
+  ],
+  "description": "barcode for react native",
+  "license": "MIT",
+  "homepage": "https://github.com/yyyyu/react-native-barcode",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:yyyyu/react-native-barcode.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node scripts/postinstall"
+  },
+  "rnpm": {
+    "commands": {
+      "postlink": "node node_modules/@yyyyu/react-native-barcode/scripts/postlink"
+    }
+  },
+  "peerDependencies": {
+    "react-native": ">0.50.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "standard": "^11.0.1"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  }
+}
