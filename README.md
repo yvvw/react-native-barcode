@@ -2,11 +2,24 @@
 
 ## 特性
 
-- 高效准确识别各种类型的条形码，包括二维码、商品条形码等
-- iOS 图片识别使用 [ZBar](http://zbar.sourceforge.net/) 、扫描识别使用 [AVFundation](https://developer.apple.com/av-foundation/)
-- Android 图片识别使用 [ZBar](http://zbar.sourceforge.net/) & [ZXing](https://github.com/zxing/zxing)、扫描识别使用 [ZBar](http://zbar.sourceforge.net/)
-- ZBar 源码是用 C 写的，执行效率高，识别速度快
-- ZXing 识别速度稍慢，对模糊不清的图像数据识别率高
+- 准确高效识别二维码、条形码、商品码等
+- 同时使用 [ZBar](http://zbar.sourceforge.net/)、[ZXing](https://github.com/zxing/zxing)、[AVFundation](https://developer.apple.com/av-foundation/)
+- 图像识别: iOS(ZBar)、Android(Zbar + ZXing)
+- 扫码识别: iOS(AVFundation)、Android(ZBar)
+
+科普:
+ZBar 由 C 写成，识别效率高；
+ZXing 由 Java 写成，能够识别难以识别的图片，速度稍慢；
+AVFundation 是 iOS 开发框架的一部分，扫码识别质量和速度都很好。
+
+## 此依赖解决的问题
+
+- 丰富可定制的格式支持(支持近 20 种条形码规范，支持自定义组合)
+- 图像识别(require、base64、file path、file uri、http uri 等数据形式提供统一的 api)、屏幕识别
+- 扫码识别(比较知名的 [react-native-camera](https://github.com/react-native-community/react-native-camera) 不支持定义识别区域，功能比较多并不专注于扫码)
+- 扫码组件样式可定义(设置尺寸、颜色、形状，任由你控制)
+- 准确的错误定位(检测设备是否可用、权限)
+- 健壮、性能(资源释放，图像压缩、设备不可用时减少不必要的计算，设置扫码区域提高识别率)
 
 ## 安装
 
@@ -20,71 +33,32 @@ or
 npm install --save @yyyyu/react-native-barcode
 ```
 
-### ios
-
-#### 1. 自动配置(推荐)
+### iOS
 
 ```bash
 react-native link @yyyyu/react-native-barcode
 ```
 
-如果项目**使用 Pods 管理依赖**需要在 Podfile 中添加
+- CocoaPods
+  - **使用** CocoaPods，在 Podfile 添加
+    ```ruby
+    pod 'React', :path => '../node_modules/react-native', :subspecs => ['Dependency']
+    pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+    ```
+  - **不使用** CocoaPods，在 Linked Frameworks and Libraries 添加 libiconv.tbd
+- 在 Info.plist 中添加相机权限 NSCameraUsageDescription
 
-```ruby
-pod 'React', :path => '../node_modules/react-native', :subspecs => ['Dependency']
-pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
-```
-#### 2. 手动配置
-
-1. 使用 Xcode 打开项目，在项目依赖目录(Libraries)下添加 node_modules 中的 @yyyyu/react-native-barcode 项目
-2. 在 Linked Frameworks and Libraries 添加 libiconv.tbd
-3. ​在 Info.plist 文件添加相机使用权限 NSCameraUsageDescription
-
-### android
-
-#### 1. 自动配置(如果 IOS 已经运行过，不需要重复运行)
+### Android
 
 ```bash
+# 已经运行过不需要重复执行
 react-native link @yyyyu/react-native-barcode
 ```
 
-#### 2. 手动配置
-
-1. 在 android/settings.gradle 文件中添加
-
-    ```Groovy
-    include ':react-native-barcode'
-    project(':react-native-barcode').projectDir = new File(rootProject.projectDir, '../node_modules/@yyyyu/react-native-barcode/android')
-    ```
-
-2. 在 android/app/build.gradle 文件中依赖部分添加
-
-    ```Groovy
-    dependencies {
-        // other dependencies
-        compile project(':react-native-barcode')
-    }
-    ```
-  
-3. 在 android/app/src/main/AndroidManifest.xml 文件中添加相机使用权限
-
-    ```xml
-    <uses-permission android:name="android.permission.CAMERA" />
-    ```
-
-4. 在 MainApplication.java 文件中添加
-
-    ```Java
-    import com.react.barcode.RCTBarcodePackage;
-
-    @Override
-    protected List<ReactPackage> getPackages() {
-        return Arrays.<ReactPackage>asList(
-            // other packages
-            new RCTBarcodePackage()
-        );
-    }
-    ```
+在 AndroidManifest.xml 文件中添加相机权限
+```xml
+<uses-permission android:name="android.permission.CAMERA" />
+```
 
 ## JS API
 
@@ -101,22 +75,17 @@ const imageLink = 'https://cdn.image.com/barcode.png'
 (async function() {
   try {
     const { type, content } = await image(imageXxx, Format.QR_CODE)
-    if (type === Format.QRCODE) {
-      console.log('result: ' + content)
-    }
+    console.log(`Result{ type: ${type}, content: ${content} }`)
   } catch (e) {
     if (e instanceof BarcodeError) {
-      switch (e.code) {
-        case ErrorCode.BARCODE_NOT_FOUND:
-          console.log('not found barcode.')
-          break
-        default:
-          console.log('other error occur.')
+      if (e.code === ErrorCode.BARCODE_NOT_FOUND) {
+        console.log('not found barcode.')
+      } else {
+        console.log('other error occur.')
       }
     }
   }
 })()
-
 
 function ScanView() {
   const scanSize = 200
@@ -161,23 +130,26 @@ function ScanView() {
 ### image
 
 ```javascript
-image() image(true) // 使用全部可用格式检测当前屏幕中是否包含条形码
-image(Format | Format[], true) // 使用规定个格式检测当前屏幕中是否包含条形码
-image(string | number) // 使用全部可用格式检测图片中包含的条形码(包含各种形式的图片)
-image(string | number, Format | Format[]) // 使用规定个格式检测当各种形式的图片是否包含条形码
+// 检测屏幕条形码
+image()
+image(true) 
+image(Format | Format[], true)
+// 检测图片条形码
+image(string | number) 
+image(string | number, Format | Format[]) 
 ```
 
 ### BarcodeScanView
 
 ```javascript
 <BarcodeScanView
-  enable={boolean} // 是否识别条形码 默认 true
-  formats={Format | Format[]} // 扫描哪些格式的条形码 默认全部
-  flash={boolean} // 是否闪光灯常亮 默认 false
-  autoFocus={boolean} // 是否自动对焦 默认 true
+  enable={boolean} // 默认可用
+  formats={Format | Format[]} // 默认全部
+  flash={boolean} // 闪光灯 默认 false
+  autoFocus={boolean} // 自动对焦 默认 true
   scanSize={number, { width: number, height: number }} // 识别区域 默认与显示区域相同
-  onScan={function ({ type, content }) {}} // 扫描结果回调
-  onError={function (e) {}} // 错误结果回调
+  onScan={function ({ type, content }) {}}
+  onError={function (e) {}}
 />
 ```
 
