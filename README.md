@@ -3,7 +3,7 @@
 ## 特性
 
 - 准确高效识别二维码、条形码、商品码等
-- 同时使用 [ZBar](http://zbar.sourceforge.net/)、[ZXing](https://github.com/zxing/zxing)、[AVFundation](https://developer.apple.com/av-foundation/)
+- 同时使用 [ZBar](http://zbar.sourceforge.net/)、[ZXing](https://github.com/zxing/zxing)、[AVFundation](https://developer.apple.com/av-foundation/)
 - 图像识别: iOS(ZBar)、Android(Zbar + ZXing)
 - 扫码识别: iOS(AVFundation)、Android(ZBar)
 
