@@ -2,11 +2,11 @@
 
 ## 特性
 
-- 高效准确识别各种类型的条形码，包括二维码、商品条形码等
+- 高效准确识别各种类型的条形码，包括二维码、商品条形码等
 - iOS 图片识别使用 [ZBar](http://zbar.sourceforge.net/) 、扫描识别使用 [AVFundation](https://developer.apple.com/av-foundation/)
 - Android 图片识别使用 [ZBar](http://zbar.sourceforge.net/) & [ZXing](https://github.com/zxing/zxing)、扫描识别使用 [ZBar](http://zbar.sourceforge.net/)
 - ZBar 源码是用 C 写的，执行效率高，识别速度快
-- ZXing 识别速度稍慢，对模糊不清的图像数据识别率高
+- ZXing 识别速度稍慢，对模糊不清的图像数据识别率高
 
 ## 安装
 
