@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Image, Platform, PermissionsAndroid, NativeModules, requireNativeComponent } from 'react-native'
+import { Image, NativeModules, requireNativeComponent } from 'react-native'
 
 /** ************ Apis ************ **/
 const { Barcode } = NativeModules
@@ -83,34 +83,6 @@ type Props = {
 export default class BarcodeScanView extends Component<Props> {
   static DEFAULT_VALUE = -1
 
-  state = {
-    granted: false
-  }
-
-  componentDidMount () {
-    if (Platform.OS === 'android') {
-      this._configAndroidPermission()
-    }
-  }
-
-  _configAndroidPermission = async () => {
-    if (await PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.CAMERA)) {
-      this.setState({ granted: true })
-      return
-    } else {
-      const granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.CAMERA)
-      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-        this.setState({ granted: true })
-        return
-      }
-    }
-    this._onError({
-      nativeEvent: {
-        code: ErrorCode.NOT_GRANT_USE_CAMERA,
-        message: 'User no authorize use camera.' }
-    })
-  }
-
   _parseProps = function (props) {
     const { enable, formats, flash, autoFocus, scanSize, ...rest } = props
 
@@ -147,21 +119,19 @@ export default class BarcodeScanView extends Component<Props> {
     }
   }
 
-  _onError = ({ nativeEvent }) => {
+  _onError = ({ nativeEvent: e }) => {
     const { onError } = this.props
     if (typeof onError === 'function') {
-      onError(new BarcodeError(nativeEvent.code, nativeEvent.message))
+      onError(new BarcodeError(parseInt(e.code), e.message))
     }
   }
 
   render () {
-    const { granted } = this.state
     const props = this._parseProps(this.props)
 
     return (
       <RCTBarcodeScanView
         {...props}
-        granted={granted}
         onScan={this._onScan}
         onError={this._onError} />
     )

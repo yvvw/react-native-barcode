@@ -1,5 +1,6 @@
 package com.react.barcode;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Rect;
@@ -20,6 +21,7 @@ import com.google.android.cameraview.CameraView;
 import com.google.android.cameraview.Size;
 import com.react.barcode.decode.Result;
 import com.react.barcode.decode.ZBarDecoder;
+import com.react.barcode.utils.PermissionUtil;
 
 import java.util.List;
 
@@ -29,7 +31,6 @@ public class RCTBarcodeScanView extends CameraView implements LifecycleEventList
     private boolean isSetupSuccess;
 
     private boolean mEnable;
-    private boolean mGranted;
     private int[] mRawFormats;
     private Size mPreviewSize;
     private Size mScanSize;
@@ -82,8 +83,19 @@ public class RCTBarcodeScanView extends CameraView implements LifecycleEventList
             onError(Error.DEVICE_NO_CAMERA.getCode(), "Device no valid camera.");
             return;
         }
-        if (mGranted) {
+        if (PermissionUtil.isGranted(mContext, Manifest.permission.CAMERA)) {
             setup();
+        } else {
+            PermissionUtil.requestPermission(mContext, Manifest.permission.CAMERA, new PermissionUtil.PermissionCallback() {
+                @Override
+                public void invoke(boolean isGranted) {
+                    if (isGranted) {
+                        setup();
+                    } else {
+                        onError(Error.NOT_GRANT_USE_CAMERA.getCode(), "User no authorize use camera.");
+                    }
+                }
+            });
         }
     }
 
@@ -109,11 +121,6 @@ public class RCTBarcodeScanView extends CameraView implements LifecycleEventList
         if (isSetupSuccess) {
             setScanning(mEnable);
         }
-    }
-
-    public void setGranted(boolean granted) {
-        mGranted = granted;
-        validateAndSetup();
     }
 
     public void setFlash(boolean flash) {
