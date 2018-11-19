@@ -21,6 +21,26 @@ AVFundation 是 iOS 开发框架的一部分，扫码识别质量和速度都很
 - 准确的错误定位(检测设备是否可用、权限)
 - 健壮、性能(资源释放，图像压缩、设备不可用时减少不必要的计算，设置扫码区域提高识别率)
 
+## Example
+
+### Local Require
+![Local Require](doc/images/local-require.png)
+
+### Base64
+![Base64](doc/images/base64.png)
+
+### Screen
+![Screen](doc/images/screen.png)
+
+### Url
+![Url](doc/images/url.png)
+
+### UPC
+![UPC](doc/images/upc.png)
+
+### Scan
+![Scan](doc/images/device-scan.png)
+
 ## 安装
 
 ```bash
@@ -48,6 +68,8 @@ react-native link @yyyyu/react-native-barcode
   - **不使用** CocoaPods，在 Linked Frameworks and Libraries 添加 libiconv.tbd
 - 在 Info.plist 中添加相机权限 NSCameraUsageDescription
 
+![iOS Link](doc/images/ios-link.png)
+
 ### Android
 
 ```bash
@@ -59,6 +81,8 @@ react-native link @yyyyu/react-native-barcode
 ```xml
 <uses-permission android:name="android.permission.CAMERA" />
 ```
+
+![Android Link](doc/images/android-link.png)
 
 ## JS API
 
@@ -87,44 +111,49 @@ const imageLink = 'https://cdn.image.com/barcode.png'
   }
 })()
 
-function ScanView() {
-  const scanSize = 200
-  return (
-    <View style={{ flex: 1 }}>
-      <BarcodeScanView
-        formats={Format.QR_CODE}
-        onScan={function handleScan({ type, content }) {
-          if (type === Format.QR_CODE) {
-            console.log('result: ' + content)
-          }
-        }}
-        onError={function handleError(e) {
-          if (e instanceof BarcodeError) {
-            if (e.code === ErrorCode.NOT_GRANT_USE_CAMERA) {
-              console.log('user not grant use camera.')
-            } else if (e.code === ErrorCode.DEVICE_NO_CAMERA) {
-              console.log('this device no camera.')
-            }
-          }
-        }}
-        scanSize={scanSize}
-        style={{ width: '100%', height: '100%', backgroundColor: '#000' }}
-      />
-      <View 
-        style={{ 
-          position: 'absolute', 
-          top: 0, 
-          left: 0, 
-          justifyContent: 'center', 
-          alignItems: 'center', 
-          width: "100%", 
-          height: '100%' 
-        }}>
-          <View style={{ width: scanSize, height: scanSize, backgroundColor: '#f003' }} />
+class ScanView extends Component {
+  handleError = function (e) {
+    if (e instanceof BarcodeError) {
+      console.log(e.message)
+    }
+  }
+
+  handleScan = function (result) {
+    console.log(result)
+  }
+
+  render () {
+    return (
+      <View style={styles.container}>
+        <BarcodeScanView
+          formats={Format.QR_CODE}
+          scanSize={200}
+          onScan={this.handleScan}
+          onError={this.handleError}
+          style={styles.scanView}
+        />
+        <View style={styles.scanAreaWrapper}>
+          <View style={styles.scanArea} />
+        </View>
       </View>
-    </View>
-  )
+    )
+  }
 }
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  scanView: { width: '100%', height: '100%' },
+  scanAreaWrapper: {
+    position: 'absolute', 
+    top: 0, 
+    left: 0, 
+    width: "100%", 
+    height: '100%',
+    justifyContent: 'center', 
+    alignItems: 'center'
+  },
+  scanArea: { width: 200, height: 200, backgroundColor: '#0003' }
+})
 ```
 
 ### image
