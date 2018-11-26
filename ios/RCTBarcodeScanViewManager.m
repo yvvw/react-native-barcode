@@ -36,7 +36,7 @@ RCT_CUSTOM_VIEW_PROPERTY(scanSize, NSDictionary, RCTBarcodeScanView)
 
 + (BOOL)requiresMainQueueSetup
 {
-    return YES;
+    return NO;
 }
 
 @end

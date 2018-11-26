@@ -1,16 +1,13 @@
 #import "RCTBarcodeScanView.h"
 
-/**
- * 执行顺序 preview -> session start -> device
- */
-
 @implementation RCTBarcodeScanView {
+    dispatch_queue_t _queue;
     AVCaptureDevice *_device;
     AVCaptureSession *_session;
     AVCaptureDeviceInput *_input;
     AVCaptureMetadataOutput *_output;
     AVCaptureVideoPreviewLayer *_previewLayer;
-    
+
     BOOL _isSetupSuccess;
     CGSize _previewSize;
     CGSize _scanSize;
@@ -22,10 +19,21 @@
 @synthesize formats = _formats;
 @synthesize scanSize = _scanSize;
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _queue = dispatch_queue_create("barcodeScan", DISPATCH_QUEUE_SERIAL);
+    }
+    return self;
+}
+
 - (void)dealloc
 {
-    if (_session) {
-        [_session stopRunning];
+    if (_session && [_session isRunning]) {
+        dispatch_async(_queue, ^{
+            [_session stopRunning];
+        });
     }
 }
 
@@ -57,21 +65,21 @@
     _device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     _input = [AVCaptureDeviceInput deviceInputWithDevice:_device error:nil];
     _output = [[AVCaptureMetadataOutput alloc] init];
-    [_output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
+    [_output setMetadataObjectsDelegate:self queue:_queue];
     _session = [[AVCaptureSession alloc] init];
     [_session setSessionPreset:AVCaptureSessionPresetHigh];
     if ([_session canAddInput:_input]) [_session addInput:_input];
     if ([_session canAddOutput:_output]) [_session addOutput:_output];
     _previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:_session];
-    _previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-
-    _output.metadataObjectTypes = _enable ? _formats : nil;
+    [_previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
     [self updatePreviewFrame];
 
-    [_session startRunning];
-    [self updateScanFrame];
-    [self updateConfigurate];
-
+    dispatch_async(_queue, ^{
+        [_session startRunning];
+        [_output setMetadataObjectTypes:_enable ? _formats : nil];
+        [self updateScanFrame];
+        [self updateConfigurate];
+    });
     _isSetupSuccess = true;
 }
 
@@ -123,14 +131,13 @@
 {
     [super layoutSubviews];
     [self validateAndSetup];
-    if (_isSetupSuccess) {
-        BOOL updateSuccess = [self updatePreviewFrame];
-        if (updateSuccess) {
+    if (_isSetupSuccess && [self updatePreviewFrame] && [_session isRunning]) {
+        dispatch_async(_queue, ^{
             [_session stopRunning];
             [_session startRunning];
             [self updateScanFrame];
             [self updateConfigurate];
-        }
+        });
     }
 }
 
@@ -138,7 +145,7 @@
 {
     if (_enable != enable) {
         _enable = enable;
-        if (_isSetupSuccess) {
+        if (_session && [_session isRunning]) {
             _output.metadataObjectTypes = _enable ? _formats : nil;
         }
     }
@@ -148,7 +155,7 @@
 {
     if (_scanSize.width != scanSize.width || _scanSize.height != scanSize.height) {
         _scanSize = scanSize;
-        if (_isSetupSuccess) {
+        if (_session && [_session isRunning]) {
             [self updateScanFrame];
             [self updateConfigurate];
         }
@@ -159,8 +166,8 @@
 {
     NSArray<AVMetadataObjectType> *formats = [AVFormat getFormatsFromRawFormats:rawFormats];
     _formats = formats;
-    if (_isSetupSuccess) {
-        _output.metadataObjectTypes = _enable ? _formats : nil;
+    if (_session && [_session isRunning]) {
+        [_output setMetadataObjectTypes:_enable ? _formats : nil];
     }
 }
 
@@ -168,7 +175,7 @@
 {
     if (_flash != flash) {
         _flash = flash;
-        if (_isSetupSuccess) [self updateConfigurate];
+        if (_session && [_session isRunning]) [self updateConfigurate];
     }
 }
 
@@ -176,7 +183,7 @@
 {
     if (_autoFocus != autoFocus) {
         _autoFocus = autoFocus;
-        if (_isSetupSuccess) [self updateConfigurate];
+        if (_session && [_session isRunning]) [self updateConfigurate];
     }
 }
 
