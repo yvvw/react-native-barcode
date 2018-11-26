@@ -31,9 +31,7 @@
 - (void)dealloc
 {
     if (_session && [_session isRunning]) {
-        dispatch_async(_queue, ^{
-            [_session stopRunning];
-        });
+        [_session stopRunning];
     }
 }
 
