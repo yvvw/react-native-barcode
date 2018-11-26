@@ -45,11 +45,6 @@ public class RCTBarcodeScanManager extends SimpleViewManager<RCTBarcodeScanView>
         view.setEnable(enable);
     }
 
-    @ReactProp(name = "granted")
-    public void setGranted(RCTBarcodeScanView view, boolean granted) {
-        view.setGranted(granted);
-    }
-
     @ReactProp(name = "flash")
     public void setFlash(RCTBarcodeScanView view, boolean flash) {
         view.setFlash(flash);
