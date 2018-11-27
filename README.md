@@ -237,3 +237,8 @@ const ErrorCode = {
   ILLEGAL_PARAMETER: -9 // 非法参数
 }
 ```
+
+## 源码参考
+
+1. Android CameraView 来自于 [react-native-camera](https://github.com/react-native-community/react-native-camera) -> [google cameraview](https://github.com/google/cameraview)
+2. Android ZBar .so 文件来自于 [dm77/barcodescanner](https://github.com/dm77/barcodescanner) 解决 Android6.0 使用[问题](https://github.com/dm77/barcodescanner/issues/123)
