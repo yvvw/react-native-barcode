@@ -16,9 +16,9 @@ import com.facebook.react.bridge.LifecycleEventListener;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
-import com.google.android.cameraview.AspectRatio;
-import com.google.android.cameraview.CameraView;
-import com.google.android.cameraview.Size;
+import com.google.android.react.cameraview.AspectRatio;
+import com.google.android.react.cameraview.CameraView;
+import com.google.android.react.cameraview.Size;
 import com.react.barcode.decode.Result;
 import com.react.barcode.decode.ZBarDecoder;
 import com.react.barcode.utils.PermissionUtil;
@@ -27,6 +27,7 @@ import java.util.List;
 
 public class RCTBarcodeScanView extends CameraView implements LifecycleEventListener {
     private ThemedReactContext mContext;
+    private CameraHandlerThread mHandlerThread;
 
     private boolean isSetupSuccess;
 
@@ -99,10 +100,38 @@ public class RCTBarcodeScanView extends CameraView implements LifecycleEventList
         }
     }
 
+    private void asyncStartCamera() {
+        if (!isCameraOpened() && mHandlerThread.isAlive()) {
+            mHandlerThread.asyncRun(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        start();
+                    } catch (RuntimeException e) {
+                        onError(Error.OPEN_CAMERA_FAILED.getCode(), "Start camera preview failed.");
+                    }
+                }
+            });
+        }
+    }
+
+    private void asyncStopCamera() {
+        if (isCameraOpened() && mHandlerThread.isAlive()) {
+            mHandlerThread.asyncRun(new Runnable() {
+                @Override
+                public void run() {
+                    pausePreview();
+                    stop();
+                }
+            });
+        }
+    }
+
     private void setup() {
         if (isSetupSuccess) return;
 
         mContext.addLifecycleEventListener(this);
+        mHandlerThread = new CameraHandlerThread();
 
         mZBarDecoder = new ZBarDecoder();
         mZBarDecoder.setFormat(mRawFormats);
@@ -111,7 +140,7 @@ public class RCTBarcodeScanView extends CameraView implements LifecycleEventList
         setAspectRatio(AspectRatio.of(4, 3));
         addCallback(mCameraCallback);
         setScanning(mEnable);
-        start();
+        asyncStartCamera();
 
         isSetupSuccess = true;
     }
@@ -195,17 +224,22 @@ public class RCTBarcodeScanView extends CameraView implements LifecycleEventList
 
     @Override
     public void onHostResume() {
-        start();
+        asyncStartCamera();
     }
 
     @Override
     public void onHostPause() {
-        stop();
+        asyncStopCamera();
     }
 
     @Override
     public void onHostDestroy() {
-        mZBarDecoder.release();
+        if (isSetupSuccess) {
+            if (mHandlerThread.isAlive()) {
+                mHandlerThread.quit();
+            }
+            mZBarDecoder.release();
+        }
     }
 
     private static class DecodeTask extends AsyncTask<Object, Void, Result> {

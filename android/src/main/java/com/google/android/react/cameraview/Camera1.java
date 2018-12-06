@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.android.cameraview;
+package com.google.android.react.cameraview;
 
 import android.annotation.SuppressLint;
 import android.graphics.SurfaceTexture;
@@ -77,11 +77,11 @@ class Camera1 extends CameraViewImpl implements MediaRecorder.OnInfoListener,
     private boolean mIsRecording;
 
     private final SizeMap mPreviewSizes = new SizeMap();
-                                                    
+
     private boolean mIsPreviewActive = false;
 
     private final SizeMap mPictureSizes = new SizeMap();
-                                                    
+
     private Size mPictureSize;
 
     private AspectRatio mAspectRatio;
@@ -190,7 +190,7 @@ class Camera1 extends CameraViewImpl implements MediaRecorder.OnInfoListener,
             mCamera.setPreviewCallback(this);
         }
     }
-                                                    
+
     @Override
     public void resumePreview() {
         startCameraPreview();
@@ -234,12 +234,12 @@ class Camera1 extends CameraViewImpl implements MediaRecorder.OnInfoListener,
         }
         return idealAspectRatios.ratios();
     }
-                                                    
+
     @Override
     SortedSet<Size> getAvailablePictureSizes(AspectRatio ratio) {
         return mPictureSizes.sizes(ratio);
     }
-    
+
     @Override
     void setPictureSize(Size size) {
         if (size == null) {
@@ -259,7 +259,7 @@ class Camera1 extends CameraViewImpl implements MediaRecorder.OnInfoListener,
             mCamera.setParameters(mCameraParameters);
         }
     }
-    
+
     @Override
     Size getPictureSize() {
         return mPictureSize;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.android.cameraview;
+package com.google.android.react.cameraview;
 
 import android.support.v4.util.ArrayMap;
 

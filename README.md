@@ -4,7 +4,7 @@
 
 - 准确高效识别二维码、条形码、商品码等
 - 同时使用 [ZBar](http://zbar.sourceforge.net/)、[ZXing](https://github.com/zxing/zxing)、[AVFundation](https://developer.apple.com/av-foundation/)
-- 图像识别: iOS(ZBar)、Android(Zbar + ZXing)
+- 图像识别: iOS(ZBar)、Android(ZBar + ZXing)
 - 扫码识别: iOS(AVFundation)、Android(ZBar)
 
 科普:
@@ -234,9 +234,14 @@ const ErrorCode = {
   NOT_GRANT_READ_IMAGE: -4, // 未授权读取图片
   NOT_GRANT_USE_CAMERA: -5, // 未授权使用相机
   DEVICE_NO_CAMERA: -6, // 设备没有摄像头
+  OPEN_CAMERA_FAILED: -7, // 打开摄像头失败(快速前后台切换会出现，现象是预览效果卡住，应该是一个可以解决的bug，暂时还没改，不会导致闪退) androidOnly
   ILLEGAL_PARAMETER: -9 // 非法参数
 }
 ```
+
+## 已知问题
+
+1. 安卓多次前后台切换会导致预览页面卡住，同时报错 OPEN_CAMERA_FAILED，原因是设置预览失败
 
 ## 源码参考
 

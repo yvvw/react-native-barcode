@@ -6,7 +6,8 @@ public enum Error {
     FILE_NOT_FOUND(-3),
     NOT_GRANT_READ_IMAGE(-4),
     NOT_GRANT_USE_CAMERA(-5),
-    DEVICE_NO_CAMERA(-6);
+    DEVICE_NO_CAMERA(-6),
+    OPEN_CAMERA_FAILED(-7);
 
     private int code;
 

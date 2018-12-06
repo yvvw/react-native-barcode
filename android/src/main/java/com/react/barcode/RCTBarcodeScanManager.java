@@ -9,7 +9,7 @@ import com.facebook.react.uimanager.PixelUtil;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
-import com.google.android.cameraview.Size;
+import com.google.android.react.cameraview.Size;
 
 import java.util.Arrays;
 import java.util.List;
