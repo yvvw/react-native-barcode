@@ -1,7 +1,7 @@
 {
   "name": "@yyyyu/react-native-barcode",
   "author": "yyyyu <g592842897@gmail.com>",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "keywords": [
     "react-native",
     "qrcode",
