@@ -1,0 +1,10 @@
+android_zbar/
+
+example/
+
+third_party/**
+
+!third_party/ZBar/include/**
+!third_party/ZBar/iphone/include/**
+!third_party/ZBar/iphone/*.{h,m}
+!third_party/ZBar/zbar/**

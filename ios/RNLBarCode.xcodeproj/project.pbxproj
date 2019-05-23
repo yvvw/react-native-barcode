@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		36479FFA2293EBDE00E0CF16 /* RCTConvert+RNLBarCodeArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = 36479FF92293EBDE00E0CF16 /* RCTConvert+RNLBarCodeArguments.m */; };
+		367CCDEB2294F54C00093979 /* ZBarSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 36C3FE552291A8C2009C6A1B /* ZBarSDK.h */; };
+		367CCE30229510E400093979 /* libZBar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C3FE412291A896009C6A1B /* libZBar.a */; };
+		36C3FE372291A841009C6A1B /* RNLBarCodeScannerViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE2D2291A840009C6A1B /* RNLBarCodeScannerViewManager.m */; };
+		36C3FE382291A841009C6A1B /* RNLBarCodeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE2E2291A840009C6A1B /* RNLBarCodeModule.m */; };
+		36C3FE392291A841009C6A1B /* RNLBarCodeScannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE302291A840009C6A1B /* RNLBarCodeScannerView.m */; };
+		36C3FE3A2291A841009C6A1B /* RNLBarCodeDecoderAV.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE322291A840009C6A1B /* RNLBarCodeDecoderAV.m */; };
+		36C3FE3B2291A841009C6A1B /* RNLBarCodeDecoderZBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE332291A841009C6A1B /* RNLBarCodeDecoderZBar.m */; };
+		36C3FE3C2291A841009C6A1B /* RNLBarCodeDecoderVN.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE342291A841009C6A1B /* RNLBarCodeDecoderVN.m */; };
+		36C3FE802291A8C6009C6A1B /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE4A2291A8C1009C6A1B /* error.c */; };
+		36C3FE812291A8C6009C6A1B /* ZBarSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE4C2291A8C1009C6A1B /* ZBarSymbol.m */; };
+		36C3FE822291A8C6009C6A1B /* decoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE4E2291A8C2009C6A1B /* decoder.c */; };
+		36C3FE832291A8C6009C6A1B /* i25.c in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE4F2291A8C2009C6A1B /* i25.c */; };
+		36C3FE842291A8C6009C6A1B /* code128.c in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE522291A8C2009C6A1B /* code128.c */; };
+		36C3FE852291A8C6009C6A1B /* ZBarImageScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE562291A8C2009C6A1B /* ZBarImageScanner.m */; };
+		36C3FE862291A8C6009C6A1B /* qrdectxt.c in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE572291A8C2009C6A1B /* qrdectxt.c */; };
+		36C3FE872291A8C6009C6A1B /* binarize.c in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE582291A8C2009C6A1B /* binarize.c */; };
+		36C3FE882291A8C6009C6A1B /* scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE592291A8C2009C6A1B /* scanner.c */; };
+		36C3FE892291A8C6009C6A1B /* rs.c in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE5B2291A8C2009C6A1B /* rs.c */; };
+		36C3FE8A2291A8C6009C6A1B /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE5C2291A8C3009C6A1B /* util.c */; };
+		36C3FE8B2291A8C6009C6A1B /* isaac.c in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE622291A8C3009C6A1B /* isaac.c */; };
+		36C3FE8C2291A8C6009C6A1B /* qr_finder.c in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE632291A8C3009C6A1B /* qr_finder.c */; };
+		36C3FE8D2291A8C6009C6A1B /* qrdec.c in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE672291A8C3009C6A1B /* qrdec.c */; };
+		36C3FE8E2291A8C6009C6A1B /* code93.c in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE682291A8C3009C6A1B /* code93.c */; };
+		36C3FE8F2291A8C6009C6A1B /* symbol.c in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE6C2291A8C4009C6A1B /* symbol.c */; };
+		36C3FE902291A8C6009C6A1B /* databar.c in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE6D2291A8C4009C6A1B /* databar.c */; };
+		36C3FE912291A8C6009C6A1B /* codabar.c in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE6E2291A8C4009C6A1B /* codabar.c */; };
+		36C3FE922291A8C6009C6A1B /* image.c in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE6F2291A8C4009C6A1B /* image.c */; };
+		36C3FE932291A8C6009C6A1B /* bch15_5.c in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE712291A8C4009C6A1B /* bch15_5.c */; };
+		36C3FE942291A8C6009C6A1B /* ean.c in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE732291A8C4009C6A1B /* ean.c */; };
+		36C3FE952291A8C6009C6A1B /* code39.c in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE742291A8C4009C6A1B /* code39.c */; };
+		36C3FE962291A8C6009C6A1B /* ZBarImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE792291A8C5009C6A1B /* ZBarImage.m */; };
+		36C3FE972291A8C6009C6A1B /* refcnt.c in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE7C2291A8C5009C6A1B /* refcnt.c */; };
+		36C3FE982291A8C6009C6A1B /* config.c in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE7D2291A8C5009C6A1B /* config.c */; };
+		36C3FE992291A8C6009C6A1B /* img_scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE7E2291A8C5009C6A1B /* img_scanner.c */; };
+		36C3FE9F2291AD54009C6A1B /* RNLBarCodeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C3FE9E2291AD54009C6A1B /* RNLBarCodeUtils.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		367CCE31229510E800093979 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 36C3FE132291A786009C6A1B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 36C3FE402291A896009C6A1B;
+			remoteInfo = ZBar;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		36C3FE3F2291A896009C6A1B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = include/ZBarSDK;
+			dstSubfolderSpec = 16;
+			files = (
+				367CCDEB2294F54C00093979 /* ZBarSDK.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		36479FF82293EBA700E0CF16 /* RCTConvert+RNLBarCodeArguments.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+RNLBarCodeArguments.h"; sourceTree = "<group>"; };
+		36479FF92293EBDE00E0CF16 /* RCTConvert+RNLBarCodeArguments.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+RNLBarCodeArguments.m"; sourceTree = "<group>"; };
+		36C3FE1B2291A786009C6A1B /* libRNLBarCode.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNLBarCode.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		36C3FE2D2291A840009C6A1B /* RNLBarCodeScannerViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNLBarCodeScannerViewManager.m; sourceTree = "<group>"; };
+		36C3FE2E2291A840009C6A1B /* RNLBarCodeModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNLBarCodeModule.m; sourceTree = "<group>"; };
+		36C3FE2F2291A840009C6A1B /* RNLBarCodeModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNLBarCodeModule.h; sourceTree = "<group>"; };
+		36C3FE302291A840009C6A1B /* RNLBarCodeScannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNLBarCodeScannerView.m; sourceTree = "<group>"; };
+		36C3FE312291A840009C6A1B /* RNLBarCodeDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNLBarCodeDecoder.h; sourceTree = "<group>"; };
+		36C3FE322291A840009C6A1B /* RNLBarCodeDecoderAV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNLBarCodeDecoderAV.m; sourceTree = "<group>"; };
+		36C3FE332291A841009C6A1B /* RNLBarCodeDecoderZBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNLBarCodeDecoderZBar.m; sourceTree = "<group>"; };
+		36C3FE342291A841009C6A1B /* RNLBarCodeDecoderVN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNLBarCodeDecoderVN.m; sourceTree = "<group>"; };
+		36C3FE352291A841009C6A1B /* RNLBarCodeScannerViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNLBarCodeScannerViewManager.h; sourceTree = "<group>"; };
+		36C3FE362291A841009C6A1B /* RNLBarCodeScannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNLBarCodeScannerView.h; sourceTree = "<group>"; };
+		36C3FE412291A896009C6A1B /* libZBar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZBar.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		36C3FE4A2291A8C1009C6A1B /* error.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = error.c; path = ../../third_party/ZBar/zbar/error.c; sourceTree = "<group>"; };
+		36C3FE4B2291A8C1009C6A1B /* code128.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = code128.h; path = ../../third_party/ZBar/zbar/decoder/code128.h; sourceTree = "<group>"; };
+		36C3FE4C2291A8C1009C6A1B /* ZBarSymbol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZBarSymbol.m; path = ../../third_party/ZBar/iphone/ZBarSymbol.m; sourceTree = "<group>"; };
+		36C3FE4D2291A8C1009C6A1B /* image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = image.h; path = ../../third_party/ZBar/zbar/image.h; sourceTree = "<group>"; };
+		36C3FE4E2291A8C2009C6A1B /* decoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = decoder.c; path = ../../third_party/ZBar/zbar/decoder.c; sourceTree = "<group>"; };
+		36C3FE4F2291A8C2009C6A1B /* i25.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = i25.c; path = ../../third_party/ZBar/zbar/decoder/i25.c; sourceTree = "<group>"; };
+		36C3FE502291A8C2009C6A1B /* qrdec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = qrdec.h; path = ../../third_party/ZBar/zbar/qrcode/qrdec.h; sourceTree = "<group>"; };
+		36C3FE512291A8C2009C6A1B /* ZBarImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZBarImage.h; path = ../../third_party/ZBar/iphone/include/ZBarSDK/ZBarImage.h; sourceTree = "<group>"; };
+		36C3FE522291A8C2009C6A1B /* code128.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = code128.c; path = ../../third_party/ZBar/zbar/decoder/code128.c; sourceTree = "<group>"; };
+		36C3FE532291A8C2009C6A1B /* databar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = databar.h; path = ../../third_party/ZBar/zbar/decoder/databar.h; sourceTree = "<group>"; };
+		36C3FE542291A8C2009C6A1B /* binarize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = binarize.h; path = ../../third_party/ZBar/zbar/qrcode/binarize.h; sourceTree = "<group>"; };
+		36C3FE552291A8C2009C6A1B /* ZBarSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSDK.h; sourceTree = "<group>"; };
+		36C3FE562291A8C2009C6A1B /* ZBarImageScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZBarImageScanner.m; path = ../../third_party/ZBar/iphone/ZBarImageScanner.m; sourceTree = "<group>"; };
+		36C3FE572291A8C2009C6A1B /* qrdectxt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = qrdectxt.c; path = ../../third_party/ZBar/zbar/qrcode/qrdectxt.c; sourceTree = "<group>"; };
+		36C3FE582291A8C2009C6A1B /* binarize.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = binarize.c; path = ../../third_party/ZBar/zbar/qrcode/binarize.c; sourceTree = "<group>"; };
+		36C3FE592291A8C2009C6A1B /* scanner.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = scanner.c; path = ../../third_party/ZBar/zbar/scanner.c; sourceTree = "<group>"; };
+		36C3FE5A2291A8C2009C6A1B /* isaac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = isaac.h; path = ../../third_party/ZBar/zbar/qrcode/isaac.h; sourceTree = "<group>"; };
+		36C3FE5B2291A8C2009C6A1B /* rs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = rs.c; path = ../../third_party/ZBar/zbar/qrcode/rs.c; sourceTree = "<group>"; };
+		36C3FE5C2291A8C3009C6A1B /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = util.c; path = ../../third_party/ZBar/zbar/qrcode/util.c; sourceTree = "<group>"; };
+		36C3FE5D2291A8C3009C6A1B /* i25.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = i25.h; path = ../../third_party/ZBar/zbar/decoder/i25.h; sourceTree = "<group>"; };
+		36C3FE5E2291A8C3009C6A1B /* error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = error.h; path = ../../third_party/ZBar/zbar/error.h; sourceTree = "<group>"; };
+		36C3FE5F2291A8C3009C6A1B /* qrcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = qrcode.h; path = ../../third_party/ZBar/zbar/qrcode.h; sourceTree = "<group>"; };
+		36C3FE602291A8C3009C6A1B /* bch15_5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bch15_5.h; path = ../../third_party/ZBar/zbar/qrcode/bch15_5.h; sourceTree = "<group>"; };
+		36C3FE612291A8C3009C6A1B /* code93.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = code93.h; path = ../../third_party/ZBar/zbar/decoder/code93.h; sourceTree = "<group>"; };
+		36C3FE622291A8C3009C6A1B /* isaac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = isaac.c; path = ../../third_party/ZBar/zbar/qrcode/isaac.c; sourceTree = "<group>"; };
+		36C3FE632291A8C3009C6A1B /* qr_finder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = qr_finder.c; path = ../../third_party/ZBar/zbar/decoder/qr_finder.c; sourceTree = "<group>"; };
+		36C3FE642291A8C3009C6A1B /* ZBarSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZBarSymbol.h; path = ../../third_party/ZBar/iphone/include/ZBarSDK/ZBarSymbol.h; sourceTree = "<group>"; };
+		36C3FE652291A8C3009C6A1B /* ean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ean.h; path = ../../third_party/ZBar/zbar/decoder/ean.h; sourceTree = "<group>"; };
+		36C3FE662291A8C3009C6A1B /* refcnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = refcnt.h; path = ../../third_party/ZBar/zbar/refcnt.h; sourceTree = "<group>"; };
+		36C3FE672291A8C3009C6A1B /* qrdec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = qrdec.c; path = ../../third_party/ZBar/zbar/qrcode/qrdec.c; sourceTree = "<group>"; };
+		36C3FE682291A8C3009C6A1B /* code93.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = code93.c; path = ../../third_party/ZBar/zbar/decoder/code93.c; sourceTree = "<group>"; };
+		36C3FE692291A8C3009C6A1B /* svg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = svg.h; path = ../../third_party/ZBar/zbar/svg.h; sourceTree = "<group>"; };
+		36C3FE6A2291A8C4009C6A1B /* ZBarImageScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZBarImageScanner.h; path = ../../third_party/ZBar/iphone/include/ZBarSDK/ZBarImageScanner.h; sourceTree = "<group>"; };
+		36C3FE6B2291A8C4009C6A1B /* symbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = symbol.h; path = ../../third_party/ZBar/zbar/symbol.h; sourceTree = "<group>"; };
+		36C3FE6C2291A8C4009C6A1B /* symbol.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = symbol.c; path = ../../third_party/ZBar/zbar/symbol.c; sourceTree = "<group>"; };
+		36C3FE6D2291A8C4009C6A1B /* databar.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = databar.c; path = ../../third_party/ZBar/zbar/decoder/databar.c; sourceTree = "<group>"; };
+		36C3FE6E2291A8C4009C6A1B /* codabar.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = codabar.c; path = ../../third_party/ZBar/zbar/decoder/codabar.c; sourceTree = "<group>"; };
+		36C3FE6F2291A8C4009C6A1B /* image.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = image.c; path = ../../third_party/ZBar/zbar/image.c; sourceTree = "<group>"; };
+		36C3FE702291A8C4009C6A1B /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = debug.h; path = ../../third_party/ZBar/zbar/debug.h; sourceTree = "<group>"; };
+		36C3FE712291A8C4009C6A1B /* bch15_5.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bch15_5.c; path = ../../third_party/ZBar/zbar/qrcode/bch15_5.c; sourceTree = "<group>"; };
+		36C3FE722291A8C4009C6A1B /* decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = decoder.h; path = ../../third_party/ZBar/zbar/decoder.h; sourceTree = "<group>"; };
+		36C3FE732291A8C4009C6A1B /* ean.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ean.c; path = ../../third_party/ZBar/zbar/decoder/ean.c; sourceTree = "<group>"; };
+		36C3FE742291A8C4009C6A1B /* code39.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = code39.c; path = ../../third_party/ZBar/zbar/decoder/code39.c; sourceTree = "<group>"; };
+		36C3FE752291A8C5009C6A1B /* zbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zbar.h; path = ../../third_party/ZBar/include/zbar.h; sourceTree = "<group>"; };
+		36C3FE762291A8C5009C6A1B /* rs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rs.h; path = ../../third_party/ZBar/zbar/qrcode/rs.h; sourceTree = "<group>"; };
+		36C3FE772291A8C5009C6A1B /* code39.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = code39.h; path = ../../third_party/ZBar/zbar/decoder/code39.h; sourceTree = "<group>"; };
+		36C3FE782291A8C5009C6A1B /* codabar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = codabar.h; path = ../../third_party/ZBar/zbar/decoder/codabar.h; sourceTree = "<group>"; };
+		36C3FE792291A8C5009C6A1B /* ZBarImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZBarImage.m; path = ../../third_party/ZBar/iphone/ZBarImage.m; sourceTree = "<group>"; };
+		36C3FE7A2291A8C5009C6A1B /* qr_finder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = qr_finder.h; path = ../../third_party/ZBar/zbar/decoder/qr_finder.h; sourceTree = "<group>"; };
+		36C3FE7B2291A8C5009C6A1B /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = util.h; path = ../../third_party/ZBar/zbar/qrcode/util.h; sourceTree = "<group>"; };
+		36C3FE7C2291A8C5009C6A1B /* refcnt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = refcnt.c; path = ../../third_party/ZBar/zbar/refcnt.c; sourceTree = "<group>"; };
+		36C3FE7D2291A8C5009C6A1B /* config.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = config.c; path = ../../third_party/ZBar/zbar/config.c; sourceTree = "<group>"; };
+		36C3FE7E2291A8C5009C6A1B /* img_scanner.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = img_scanner.c; path = ../../third_party/ZBar/zbar/img_scanner.c; sourceTree = "<group>"; };
+		36C3FE7F2291A8C5009C6A1B /* img_scanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = img_scanner.h; path = ../../third_party/ZBar/zbar/img_scanner.h; sourceTree = "<group>"; };
+		36C3FE9D2291AD45009C6A1B /* RNLBarCodeUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNLBarCodeUtils.h; sourceTree = "<group>"; };
+		36C3FE9E2291AD54009C6A1B /* RNLBarCodeUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNLBarCodeUtils.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		36C3FE182291A786009C6A1B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				367CCE30229510E400093979 /* libZBar.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36C3FE3E2291A896009C6A1B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		36C3FE122291A786009C6A1B = {
+			isa = PBXGroup;
+			children = (
+				36C3FE2F2291A840009C6A1B /* RNLBarCodeModule.h */,
+				36C3FE2E2291A840009C6A1B /* RNLBarCodeModule.m */,
+				36C3FE362291A841009C6A1B /* RNLBarCodeScannerView.h */,
+				36C3FE302291A840009C6A1B /* RNLBarCodeScannerView.m */,
+				36C3FE352291A841009C6A1B /* RNLBarCodeScannerViewManager.h */,
+				36C3FE2D2291A840009C6A1B /* RNLBarCodeScannerViewManager.m */,
+				36C3FE312291A840009C6A1B /* RNLBarCodeDecoder.h */,
+				36C3FE322291A840009C6A1B /* RNLBarCodeDecoderAV.m */,
+				36C3FE342291A841009C6A1B /* RNLBarCodeDecoderVN.m */,
+				36C3FE332291A841009C6A1B /* RNLBarCodeDecoderZBar.m */,
+				36479FF82293EBA700E0CF16 /* RCTConvert+RNLBarCodeArguments.h */,
+				36479FF92293EBDE00E0CF16 /* RCTConvert+RNLBarCodeArguments.m */,
+				36C3FE9D2291AD45009C6A1B /* RNLBarCodeUtils.h */,
+				36C3FE9E2291AD54009C6A1B /* RNLBarCodeUtils.m */,
+				36C3FE422291A896009C6A1B /* ZBar */,
+				36C3FE1C2291A786009C6A1B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		36C3FE1C2291A786009C6A1B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				36C3FE1B2291A786009C6A1B /* libRNLBarCode.a */,
+				36C3FE412291A896009C6A1B /* libZBar.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		36C3FE422291A896009C6A1B /* ZBar */ = {
+			isa = PBXGroup;
+			children = (
+				36C3FE712291A8C4009C6A1B /* bch15_5.c */,
+				36C3FE602291A8C3009C6A1B /* bch15_5.h */,
+				36C3FE582291A8C2009C6A1B /* binarize.c */,
+				36C3FE542291A8C2009C6A1B /* binarize.h */,
+				36C3FE6E2291A8C4009C6A1B /* codabar.c */,
+				36C3FE782291A8C5009C6A1B /* codabar.h */,
+				36C3FE742291A8C4009C6A1B /* code39.c */,
+				36C3FE772291A8C5009C6A1B /* code39.h */,
+				36C3FE682291A8C3009C6A1B /* code93.c */,
+				36C3FE612291A8C3009C6A1B /* code93.h */,
+				36C3FE522291A8C2009C6A1B /* code128.c */,
+				36C3FE4B2291A8C1009C6A1B /* code128.h */,
+				36C3FE7D2291A8C5009C6A1B /* config.c */,
+				36C3FE6D2291A8C4009C6A1B /* databar.c */,
+				36C3FE532291A8C2009C6A1B /* databar.h */,
+				36C3FE702291A8C4009C6A1B /* debug.h */,
+				36C3FE4E2291A8C2009C6A1B /* decoder.c */,
+				36C3FE722291A8C4009C6A1B /* decoder.h */,
+				36C3FE732291A8C4009C6A1B /* ean.c */,
+				36C3FE652291A8C3009C6A1B /* ean.h */,
+				36C3FE4A2291A8C1009C6A1B /* error.c */,
+				36C3FE5E2291A8C3009C6A1B /* error.h */,
+				36C3FE4F2291A8C2009C6A1B /* i25.c */,
+				36C3FE5D2291A8C3009C6A1B /* i25.h */,
+				36C3FE6F2291A8C4009C6A1B /* image.c */,
+				36C3FE4D2291A8C1009C6A1B /* image.h */,
+				36C3FE7E2291A8C5009C6A1B /* img_scanner.c */,
+				36C3FE7F2291A8C5009C6A1B /* img_scanner.h */,
+				36C3FE622291A8C3009C6A1B /* isaac.c */,
+				36C3FE5A2291A8C2009C6A1B /* isaac.h */,
+				36C3FE632291A8C3009C6A1B /* qr_finder.c */,
+				36C3FE7A2291A8C5009C6A1B /* qr_finder.h */,
+				36C3FE5F2291A8C3009C6A1B /* qrcode.h */,
+				36C3FE672291A8C3009C6A1B /* qrdec.c */,
+				36C3FE502291A8C2009C6A1B /* qrdec.h */,
+				36C3FE572291A8C2009C6A1B /* qrdectxt.c */,
+				36C3FE7C2291A8C5009C6A1B /* refcnt.c */,
+				36C3FE662291A8C3009C6A1B /* refcnt.h */,
+				36C3FE5B2291A8C2009C6A1B /* rs.c */,
+				36C3FE762291A8C5009C6A1B /* rs.h */,
+				36C3FE592291A8C2009C6A1B /* scanner.c */,
+				36C3FE692291A8C3009C6A1B /* svg.h */,
+				36C3FE6C2291A8C4009C6A1B /* symbol.c */,
+				36C3FE6B2291A8C4009C6A1B /* symbol.h */,
+				36C3FE5C2291A8C3009C6A1B /* util.c */,
+				36C3FE7B2291A8C5009C6A1B /* util.h */,
+				36C3FE752291A8C5009C6A1B /* zbar.h */,
+				36C3FE512291A8C2009C6A1B /* ZBarImage.h */,
+				36C3FE792291A8C5009C6A1B /* ZBarImage.m */,
+				36C3FE6A2291A8C4009C6A1B /* ZBarImageScanner.h */,
+				36C3FE562291A8C2009C6A1B /* ZBarImageScanner.m */,
+				36C3FE552291A8C2009C6A1B /* ZBarSDK.h */,
+				36C3FE642291A8C3009C6A1B /* ZBarSymbol.h */,
+				36C3FE4C2291A8C1009C6A1B /* ZBarSymbol.m */,
+			);
+			path = ZBar;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		36C3FE1A2291A786009C6A1B /* RNLBarCode */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36C3FE242291A786009C6A1B /* Build configuration list for PBXNativeTarget "RNLBarCode" */;
+			buildPhases = (
+				36C3FE172291A786009C6A1B /* Sources */,
+				36C3FE182291A786009C6A1B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				367CCE32229510E800093979 /* PBXTargetDependency */,
+			);
+			name = RNLBarCode;
+			productName = RNLBarCode;
+			productReference = 36C3FE1B2291A786009C6A1B /* libRNLBarCode.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		36C3FE402291A896009C6A1B /* ZBar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36C3FE472291A896009C6A1B /* Build configuration list for PBXNativeTarget "ZBar" */;
+			buildPhases = (
+				36C3FE3D2291A896009C6A1B /* Sources */,
+				36C3FE3E2291A896009C6A1B /* Frameworks */,
+				36C3FE3F2291A896009C6A1B /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZBar;
+			productName = ZBar;
+			productReference = 36C3FE412291A896009C6A1B /* libZBar.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		36C3FE132291A786009C6A1B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = rnlibrary;
+				TargetAttributes = {
+					36C3FE1A2291A786009C6A1B = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					36C3FE402291A896009C6A1B = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 36C3FE162291A786009C6A1B /* Build configuration list for PBXProject "RNLBarCode" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 36C3FE122291A786009C6A1B;
+			productRefGroup = 36C3FE1C2291A786009C6A1B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				36C3FE1A2291A786009C6A1B /* RNLBarCode */,
+				36C3FE402291A896009C6A1B /* ZBar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		36C3FE172291A786009C6A1B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36C3FE3C2291A841009C6A1B /* RNLBarCodeDecoderVN.m in Sources */,
+				36C3FE3B2291A841009C6A1B /* RNLBarCodeDecoderZBar.m in Sources */,
+				36C3FE372291A841009C6A1B /* RNLBarCodeScannerViewManager.m in Sources */,
+				36C3FE9F2291AD54009C6A1B /* RNLBarCodeUtils.m in Sources */,
+				36479FFA2293EBDE00E0CF16 /* RCTConvert+RNLBarCodeArguments.m in Sources */,
+				36C3FE3A2291A841009C6A1B /* RNLBarCodeDecoderAV.m in Sources */,
+				36C3FE382291A841009C6A1B /* RNLBarCodeModule.m in Sources */,
+				36C3FE392291A841009C6A1B /* RNLBarCodeScannerView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36C3FE3D2291A896009C6A1B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36C3FE912291A8C6009C6A1B /* codabar.c in Sources */,
+				36C3FE862291A8C6009C6A1B /* qrdectxt.c in Sources */,
+				36C3FE8D2291A8C6009C6A1B /* qrdec.c in Sources */,
+				36C3FE902291A8C6009C6A1B /* databar.c in Sources */,
+				36C3FE982291A8C6009C6A1B /* config.c in Sources */,
+				36C3FE882291A8C6009C6A1B /* scanner.c in Sources */,
+				36C3FE932291A8C6009C6A1B /* bch15_5.c in Sources */,
+				36C3FE922291A8C6009C6A1B /* image.c in Sources */,
+				36C3FE842291A8C6009C6A1B /* code128.c in Sources */,
+				36C3FE812291A8C6009C6A1B /* ZBarSymbol.m in Sources */,
+				36C3FE8E2291A8C6009C6A1B /* code93.c in Sources */,
+				36C3FE822291A8C6009C6A1B /* decoder.c in Sources */,
+				36C3FE992291A8C6009C6A1B /* img_scanner.c in Sources */,
+				36C3FE972291A8C6009C6A1B /* refcnt.c in Sources */,
+				36C3FE8C2291A8C6009C6A1B /* qr_finder.c in Sources */,
+				36C3FE852291A8C6009C6A1B /* ZBarImageScanner.m in Sources */,
+				36C3FE892291A8C6009C6A1B /* rs.c in Sources */,
+				36C3FE832291A8C6009C6A1B /* i25.c in Sources */,
+				36C3FE8A2291A8C6009C6A1B /* util.c in Sources */,
+				36C3FE952291A8C6009C6A1B /* code39.c in Sources */,
+				36C3FE8B2291A8C6009C6A1B /* isaac.c in Sources */,
+				36C3FE802291A8C6009C6A1B /* error.c in Sources */,
+				36C3FE942291A8C6009C6A1B /* ean.c in Sources */,
+				36C3FE962291A8C6009C6A1B /* ZBarImage.m in Sources */,
+				36C3FE872291A8C6009C6A1B /* binarize.c in Sources */,
+				36C3FE8F2291A8C6009C6A1B /* symbol.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		367CCE32229510E800093979 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 36C3FE402291A896009C6A1B /* ZBar */;
+			targetProxy = 367CCE31229510E800093979 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		36C3FE222291A786009C6A1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		36C3FE232291A786009C6A1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		36C3FE252291A786009C6A1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		36C3FE262291A786009C6A1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		36C3FE482291A896009C6A1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/../third_party/ZBar/iphone/include/prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/../third_party/ZBar/include",
+					"${SRCROOT}/../third_party/ZBar/iphone/include",
+				);
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		36C3FE492291A896009C6A1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/../third_party/ZBar/iphone/include/prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/../third_party/ZBar/include",
+					"${SRCROOT}/../third_party/ZBar/iphone/include",
+				);
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		36C3FE162291A786009C6A1B /* Build configuration list for PBXProject "RNLBarCode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36C3FE222291A786009C6A1B /* Debug */,
+				36C3FE232291A786009C6A1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36C3FE242291A786009C6A1B /* Build configuration list for PBXNativeTarget "RNLBarCode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36C3FE252291A786009C6A1B /* Debug */,
+				36C3FE262291A786009C6A1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36C3FE472291A896009C6A1B /* Build configuration list for PBXNativeTarget "ZBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36C3FE482291A896009C6A1B /* Debug */,
+				36C3FE492291A896009C6A1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 36C3FE132291A786009C6A1B /* Project object */;
+}

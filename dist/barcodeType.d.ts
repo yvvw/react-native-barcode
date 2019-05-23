@@ -1,0 +1,83 @@
+export declare enum ZXing {
+    UPC_A = 12,
+    UPC_E = 9,
+    EAN_13 = 13,
+    EAN_8 = 8,
+    CODA_BAR = 38,
+    CODE_39 = 39,
+    CODE_93 = 93,
+    CODE_128 = 128,
+    ITF = 25,
+    DATA_BAR = 34,
+    DATA_BAR_EXP = 35,
+    PDF417 = 57,
+    AZTEC = 225,
+    DATA_MATRIX = 200,
+    MAXI_CODE = 93,
+    QR_CODE = 64
+}
+export declare enum ZBar {
+    UPC_A = 12,
+    UPC_E = 9,
+    EAN_13 = 13,
+    EAN_5 = 5,
+    EAN_8 = 8,
+    EAN_2 = 2,
+    UPC_EAN = 15,
+    CODA_BAR = 38,
+    CODE_39 = 39,
+    CODE_93 = 93,
+    CODE_128 = 128,
+    ITF = 25,
+    DATA_BAR = 34,
+    DATA_BAR_EXP = 35,
+    ISBN_10 = 10,
+    ISBN_13 = 14,
+    PDF417 = 57,
+    QR_CODE = 64
+}
+export declare enum VNBarCode {
+    UPC_E = 9,
+    EAN_13 = 13,
+    EAN_8 = 8,
+    CODE_39 = 39,
+    CODE_39_C = 51,
+    CODE_39_FA = 289,
+    CODE_39_FA_C = 4051,
+    CODE_93 = 93,
+    CODE_93I = 931,
+    CODE_128 = 128,
+    ITF = 25,
+    ITF_C = 37,
+    ITF_14 = 45,
+    PDF417 = 57,
+    AZTEC = 225,
+    DATA_MATRIX = 200,
+    QR_CODE = 64
+}
+export declare enum AVMetadataObject {
+    UPC_E = 9,
+    EAN_13 = 13,
+    EAN_8 = 8,
+    CODE_39 = 39,
+    CODE_39_MOD_43 = 106,
+    CODE_93 = 93,
+    CODE_128 = 128,
+    ITF = 25,
+    ITF_14 = 45,
+    PDF417 = 57,
+    AZTEC = 225,
+    DATA_MATRIX = 200,
+    QR_CODE = 64
+}
+export declare enum Common {
+    UPC_E = 9,
+    EAN_13 = 13,
+    EAN_8 = 8,
+    CODE_39 = 39,
+    CODE_93 = 93,
+    CODE_128 = 128,
+    ITF = 25,
+    PDF417 = 57,
+    QR_CODE = 64
+}

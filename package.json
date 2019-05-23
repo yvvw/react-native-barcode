@@ -1,36 +1,52 @@
 {
   "name": "@yyyyu/react-native-barcode",
-  "author": "yyyyu <g592842897@gmail.com>",
-  "version": "1.2.4",
+  "version": "0.0.0-development",
+  "description": "react native barcode scanner and decoder.",
   "keywords": [
     "react-native",
     "qrcode",
     "barcode"
   ],
-  "description": "barcode for react native",
-  "license": "MIT",
   "homepage": "https://github.com/yyyyu/react-native-barcode",
+  "bugs": {
+    "url": "https://github.com/yyyyu/react-native-barcode/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "yyyyu",
+    "email": "g592842897@gmail.com"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:yyyyu/react-native-barcode.git"
+    "url": "https://github.com/yyyyu/react-native-barcode.git"
   },
-  "main": "index.js",
   "scripts": {
-    "postinstall": "node scripts/postinstall"
+    "test": "echo ignore",
+    "build": "tsc",
+    "lint": "tslint --fix ./src/*.ts{,x}",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release"
   },
-  "rnpm": {
-    "commands": {
-      "postlink": "node node_modules/@yyyyu/react-native-barcode/scripts/postlink"
-    }
-  },
-  "peerDependencies": {
-    "react-native": ">0.50.0"
+  "dependencies": {
+    "@types/react": "^16.8.17",
+    "@types/react-native": "^0.57.45"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.3",
-    "standard": "^11.0.1"
+    "commitizen": "^3.1.1",
+    "cz-conventional-changelog": "^2.1.0",
+    "semantic-release": "^15.13.12",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.3"
   },
-  "standard": {
-    "parser": "babel-eslint"
+  "peerDependencies": {
+    "react": "16.8.3",
+    "react-native": "^0.59.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
