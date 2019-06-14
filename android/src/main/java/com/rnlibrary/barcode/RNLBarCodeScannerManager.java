@@ -2,7 +2,7 @@ package com.rnlibrary.barcode;
 
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.common.MapBuilder;
-import com.facebook.react.uimanager.SimpleViewManager;
+import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
 
@@ -10,7 +10,7 @@ import java.util.Map;
 
 import javax.annotation.Nullable;
 
-public class RNLBarCodeScannerManager extends SimpleViewManager<RNLBarCodeScannerView> {
+public class RNLBarCodeScannerManager extends ViewGroupManager<RNLBarCodeScannerView> {
     private static final String ViewName = "RNLBarCodeScannerView";
 
     @ReactProp(name = "enable")
