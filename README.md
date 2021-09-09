@@ -1,3 +1,6 @@
+# This repository was no longer maintained, thank you for your support
+# 本项目已不再维护，感谢支持
+
 # react-native-barcode
 
 [![npm version](https://badge.fury.io/js/%40yyyyu%2Freact-native-barcode.svg)](https://www.npmjs.com/package/@yyyyu/react-native-barcode) [![Build Status](https://travis-ci.org/yyyyu/react-native-barcode.svg?branch=master)](https://travis-ci.org/yyyyu/react-native-barcode)
